@@ -16,7 +16,12 @@ public class CmdPraiseOre extends Command {
 
 	@Override
 	public void runCommand(String s, String[] args) {
-		Wrapper.getPlayer().sendChatMessage(praises[new Random().nextInt(praises.length)]);
+		try {
+			Wrapper.getPlayer().sendChatMessage(praises[new Random().nextInt(praises.length)]);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			Wrapper.addChatMessage("Usage: " + getSyntax());
+		}
 	}
 
 	@Override

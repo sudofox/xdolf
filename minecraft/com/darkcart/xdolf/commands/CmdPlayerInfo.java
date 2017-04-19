@@ -17,18 +17,18 @@ public class CmdPlayerInfo extends Command {
 
 	@Override
 	public void runCommand(String s, String[] args) {
-		String name = args[0];
-		for (int x = 0; x < Wrapper.getWorld().loadedEntityList.size(); x++)
-		{
-			if (Wrapper.getWorld().loadedEntityList.get(x) instanceof EntityPlayer)
+		try {
+			String name = args[0];
+			for (int x = 0; x < Wrapper.getWorld().loadedEntityList.size(); x++)
 			{
-				EntityPlayer ent = (EntityPlayer)Wrapper.getWorld().loadedEntityList.get(x);
-				if (ent.getName().equalsIgnoreCase(name))
+				if (Wrapper.getWorld().loadedEntityList.get(x) instanceof EntityPlayer)
 				{
-					try {
+					EntityPlayer ent = (EntityPlayer)Wrapper.getWorld().loadedEntityList.get(x);
+					if (ent.getName().equalsIgnoreCase(name))
+					{
 						Wrapper.addChatMessage("Username: " + ent.getName());
 						boolean checkHealth = ent.getHealth() == 20;
-						Wrapper.addChatMessage("Health: " + (checkHealth ? "20" : ent.getHealth()) + "/20");
+						Wrapper.addChatMessage("Health: " + (checkHealth ? "20" : ((double)Math.round(((ent).getHealth() * 100) / 100)) + "/20"));
 						Wrapper.addChatMessage("Distance: " + Math.abs(ent.getDistanceToEntity(Wrapper.getPlayer())));
 						if (ent.inventory.armorItemInSlot(3) != null)
 						{
@@ -49,16 +49,16 @@ public class CmdPlayerInfo extends Command {
 							int var15Size = var15.size() - 1;
 							Wrapper.addChatMessage("\247f" + var15);
 						}
-							
+								
 						if (ent.inventory.armorItemInSlot(2) != null)
 						{
 							ArrayList var16 = new ArrayList();
 							var16.add(ent.inventory.armorItemInSlot(2).getDisplayName());
-							
+								
 							NBTTagList chest = ent.inventory.armorItemInSlot(2).getEnchantmentTagList();
 							for (int var4 = 0; var4 < chest.tagCount(); ++var4)
 							{
-			    				//chest
+				    			//chest
 								short var7 = ((NBTTagCompound)chest.getCompoundTagAt(var4)).getShort("id");
 								short var8 = ((NBTTagCompound)chest.getCompoundTagAt(var4)).getShort("lvl");
 								if (Enchantment.getEnchantmentByID(var7) != null)
@@ -69,12 +69,12 @@ public class CmdPlayerInfo extends Command {
 							int var15Size = var16.size() - 1;
 							Wrapper.addChatMessage("\247f" + var16);
 						}
-						
+							
 						if (ent.inventory.armorItemInSlot(1) != null)
 						{
 							ArrayList var18 = new ArrayList();
 							var18.add(ent.inventory.armorItemInSlot(1).getDisplayName());
-						
+							
 							NBTTagList legs = ent.inventory.armorItemInSlot(1).getEnchantmentTagList();
 							for (int var4 = 0; var4 < legs.tagCount(); ++var4)
 							{
@@ -87,14 +87,14 @@ public class CmdPlayerInfo extends Command {
 								}
 							}
 							int var15Size = var18.size() - 1;
-		    				Wrapper.addChatMessage("\247f" + var18);
+			    			Wrapper.addChatMessage("\247f" + var18);
 						}
-						
+							
 						if (ent.inventory.armorItemInSlot(0) != null)
 						{
 							ArrayList var18 = new ArrayList();
 							var18.add(ent.inventory.armorItemInSlot(0).getDisplayName());
-						
+							
 							NBTTagList legs = ent.inventory.armorItemInSlot(0).getEnchantmentTagList();
 							for (int var4 = 0; var4 < legs.tagCount(); ++var4)
 							{
@@ -107,14 +107,14 @@ public class CmdPlayerInfo extends Command {
 								}
 							}
 							int var15Size = var18.size() - 1;
-		    				Wrapper.addChatMessage("\247f" + var18);
+			    			Wrapper.addChatMessage("\247f" + var18);
 						}
-						
+							
 						if (ent.inventory.getCurrentItem().isItemEnchanted())
 						{
 							ArrayList var19 = new ArrayList();
 							var19.add(ent.inventory.getCurrentItem().getDisplayName());
-						
+							
 							NBTTagList currentItem = ent.inventory.getCurrentItem().getEnchantmentTagList();
 							for (int var4 = 0; var4 < currentItem.tagCount(); ++var4)
 							{
@@ -129,11 +129,10 @@ public class CmdPlayerInfo extends Command {
 							int var15Size = var19.size() - 1;
 							Wrapper.addChatMessage("\247f" + var19);
 						}
-						
-					}catch(Exception ex){ Wrapper.addChatMessage("Something went wrong!");}
+					}
 				}
 			}
-		}
+		}catch(Exception ex) {}
 	}
 
 	@Override
