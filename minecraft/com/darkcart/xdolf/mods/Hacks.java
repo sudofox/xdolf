@@ -57,6 +57,7 @@ public class Hacks
 			new CrystalLog(),
 			new AutoEat(),
 			new Jesus(),
+			new EntitySpeed(),
 	});
 
 	public static Module[] getEnabledHacks()

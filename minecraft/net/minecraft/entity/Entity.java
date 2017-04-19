@@ -103,7 +103,7 @@ public abstract class Entity implements ICommandSender
     public boolean preventEntitySpawning;
     private final List<Entity> riddenByEntities;
     protected int rideCooldown;
-    private Entity ridingEntity;
+    public Entity ridingEntity;
     public boolean forceSpawn;
 
     /** Reference to the World object. */
