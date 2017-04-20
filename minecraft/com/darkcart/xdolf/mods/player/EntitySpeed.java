@@ -4,6 +4,7 @@ import org.lwjgl.input.Keyboard;
 
 import com.darkcart.xdolf.Module;
 import com.darkcart.xdolf.util.Category;
+import com.darkcart.xdolf.util.Value;
 
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.network.play.client.CPacketPlayer;
@@ -11,6 +12,9 @@ import net.minecraft.util.MovementInput;
 
 public class EntitySpeed extends Module
 {
+	
+	public static Value entitySpeed = new Value("Entity Speed");
+	
 	public EntitySpeed()
 	{
 		super("EntitySpeed", "Speedhack for entities.", Keyboard.KEYBOARD_SIZE, 0xFFFFFF, Category.PLAYER);
@@ -41,8 +45,8 @@ public class EntitySpeed extends Module
 							forward = -1.0D;
 						}
 					}
-					player.ridingEntity.motionX = (forward * 3 * Math.cos(Math.toRadians(yaw + 90.0F)) + strafe * 3 * Math.sin(Math.toRadians(yaw + 90.0F)));
-					player.ridingEntity.motionZ = (forward * 3 * Math.sin(Math.toRadians(yaw + 90.0F)) - strafe * 3 * Math.cos(Math.toRadians(yaw + 90.0F)));
+					player.ridingEntity.motionX = (forward * entitySpeed.getValue() * Math.cos(Math.toRadians(yaw + 90.0F)) + strafe * entitySpeed.getValue() * Math.sin(Math.toRadians(yaw + 90.0F)));
+					player.ridingEntity.motionZ = (forward * entitySpeed.getValue() * Math.sin(Math.toRadians(yaw + 90.0F)) - strafe * entitySpeed.getValue() * Math.cos(Math.toRadians(yaw + 90.0F)));
 				}
 			}
 		}
