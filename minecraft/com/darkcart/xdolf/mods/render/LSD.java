@@ -14,7 +14,7 @@ import net.minecraft.entity.player.EntityPlayer;
 public class LSD extends Module {
 
 	public LSD() {
-		super("LSD", "Psycadelic!", Keyboard.KEY_NONE, 0xffffff, Category.RENDER);
+		super("LSD", "Psycadelic!", Keyboard.KEYBOARD_SIZE, 0xffffff, Category.RENDER);
 	}
 
 	public void onEnable() {

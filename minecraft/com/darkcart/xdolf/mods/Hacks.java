@@ -96,7 +96,7 @@ public class Hacks
 			new AutoEat(),
 			new Jesus(),
 			new EntitySpeed(),
-			new LSD()
+			//new LSD()
 	});
 
 	public static Module[] getEnabledHacks()

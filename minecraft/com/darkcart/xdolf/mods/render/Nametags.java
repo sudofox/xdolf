@@ -55,9 +55,6 @@ public class Nametags extends Module {
 	
     private void renderTag(Entity entity, double x, double y, double z) {
         String name = entity.getName();
-        for(Friend friend: Wrapper.getFriends().friendsList) {
-        	name.replace(friend.getName(), friend.getAlias());
-        }
         if(Wrapper.getFriends().isFriend(name)) {
         	name = "\2479" + name;
         }
@@ -65,6 +62,9 @@ public class Nametags extends Module {
         name = name + " \247a" + ((double)Math.round((((EntityLivingBase) entity).getHealth() * 100) / 100) / 2);
         }
         
+        for(Friend friend: Wrapper.getFriends().friendsList) {
+        	name.replace(friend.getName(), friend.getAlias());
+        }
         float var13 = 1.6F;
         float var14 = (float) (0.016666668F * (Wrapper.getPlayer().getDistanceToEntity(entity)) / 2);
         GL11.glPushMatrix();
