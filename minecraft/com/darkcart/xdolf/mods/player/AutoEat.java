@@ -7,7 +7,11 @@ import com.darkcart.xdolf.Wrapper;
 import com.darkcart.xdolf.util.Category;
 import com.darkcart.xdolf.util.Value;
 
+import net.minecraft.block.BlockContainer;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.passive.EntityTameable;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemAppleGold;
 import net.minecraft.item.ItemFood;
@@ -22,27 +26,23 @@ public class AutoEat extends Module {
 		super("AutoEat", "Automatically eats food, will not eat Golden Apples.", Keyboard.KEYBOARD_SIZE, 0xFFFFFF, Category.PLAYER);
 	}
 	
+	boolean doneEating;
 	
 	@Override
 	public void onUpdate(EntityPlayerSP player) {
         ItemStack curStack = player.inventory.getCurrentItem();
         
 		if(isEnabled()) {
-			if(hungerFactor.getValue() < 1)
-			{
-				hungerFactor.setValue(7.00F);
+			
+			if(!shouldEat()) {
+				Wrapper.getMinecraft().gameSettings.keyBindUseItem.pressed = false;
+				return;
 			}
+				
 			FoodStats foodStats = player.getFoodStats();
-            if (curStack != null && foodStats.getFoodLevel() == 20F && curStack.getItem() instanceof ItemFood 
-            		&& player.isHandActive() && !(curStack.getItem() instanceof ItemAppleGold)) {
-            	Wrapper.getMinecraft().gameSettings.keyBindUseItem.pressed = false;
-            	
-            }
-            if (foodStats.getFoodLevel() <= hungerFactor.getValue()) 
+            if (foodStats.getFoodLevel() <= hungerFactor.getValue() && shouldEat()) 
             {
-                if (curStack != null) {
-                		eatFood();
-                }
+            	eatFood();
             }
 		}
 	}
@@ -76,5 +76,27 @@ public class AutoEat extends Module {
 				}
 			}
 		}
+	}
+	
+	private boolean shouldEat()
+	{	
+		if(!Wrapper.getPlayer().canEat(false))
+			return false;
+		
+		if(Wrapper.getMinecraft().currentScreen != null)
+			return false;
+		
+		if(Wrapper.getMinecraft().currentScreen == null && Wrapper.getMinecraft().objectMouseOver != null)
+		{
+			Entity entity = Wrapper.getMinecraft().objectMouseOver.entityHit;
+			if(entity instanceof EntityVillager || entity instanceof EntityTameable)
+				return false;
+			
+			if(Wrapper.getMinecraft().objectMouseOver.getBlockPos() != null && Wrapper.getWorld().
+					getBlockState(Wrapper.getMinecraft().objectMouseOver.getBlockPos()).getBlock() instanceof BlockContainer)
+				return false;
+		}
+		
+		return true;
 	}
 }
