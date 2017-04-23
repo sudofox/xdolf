@@ -51,7 +51,7 @@ public class AutoTotem extends Module {
             			}
             		}
                 }
-				timer = 2;
+				timer = 4;
             }
 		}
 	}

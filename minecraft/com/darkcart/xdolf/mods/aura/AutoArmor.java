@@ -89,7 +89,7 @@ public class AutoArmor extends Module {
 			}
 		}
 				
-		timer = 2;
+		timer = 4;
 	}
 
 	public int getArmorType(ItemArmor armor) {
