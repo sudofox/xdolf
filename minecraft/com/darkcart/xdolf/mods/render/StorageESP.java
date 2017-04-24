@@ -42,19 +42,19 @@ public class StorageESP extends Module {
 				}
 				if (o instanceof TileEntityFurnace) {
 					TileEntityFurnace furnace = (TileEntityFurnace) o;
-					RenderUtils.blockESP(furnace.getPos(), Color.gray, 1.0, 1.0);
+					RenderUtils.blockESP(furnace.getPos(), Color.white, 1.0, 1.0);
 				}
 				if (o instanceof TileEntityDispenser) {
 					TileEntityDispenser dispenser = (TileEntityDispenser) o;
-					RenderUtils.blockESP(dispenser.getPos(), Color.gray, 1.0, 1.0);
+					RenderUtils.blockESP(dispenser.getPos(), Color.white, 1.0, 1.0);
 				}
 				if (o instanceof TileEntityDropper) {
 					TileEntityDropper dropper = (TileEntityDropper) o;
-					RenderUtils.blockESP(dropper.getPos(), Color.gray, 1.0, 1.0);
+					RenderUtils.blockESP(dropper.getPos(), Color.white, 1.0, 1.0);
 				}
 				if (o instanceof TileEntityHopper) {
 					TileEntityHopper hopper = (TileEntityHopper) o;
-					RenderUtils.blockESP(hopper.getPos(), Color.gray, 1.0, 1.0);
+					RenderUtils.blockESP(hopper.getPos(), Color.white, 1.0, 1.0);
 				}
 				if (o instanceof TileEntityShulkerBox) {
 					TileEntityShulkerBox shulker = (TileEntityShulkerBox) o;
@@ -67,7 +67,7 @@ public class StorageESP extends Module {
 					RenderUtils.blockESP(e.getPosition(), Color.green, 1.0, 1.0);
 				}
 				if (e instanceof EntityMinecartFurnace || e instanceof EntityMinecartHopper) {
-					RenderUtils.blockESP(e.getPosition(), Color.gray, 1.0, 1.0);
+					RenderUtils.blockESP(e.getPosition(), Color.white, 1.0, 1.0);
 				}
 			}
 		}
