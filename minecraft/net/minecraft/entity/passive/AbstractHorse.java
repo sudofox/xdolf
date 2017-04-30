@@ -415,7 +415,7 @@ public abstract class AbstractHorse extends EntityAnimal implements IInventoryCh
 
     public boolean isHorseSaddled()
     {
-        return this.getHorseWatchableBoolean(4);
+        return true; //this.getHorseWatchableBoolean(4);
     }
 
     @Nullable
