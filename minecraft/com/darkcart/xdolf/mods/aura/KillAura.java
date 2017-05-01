@@ -13,7 +13,6 @@ import com.darkcart.xdolf.Module;
 import com.darkcart.xdolf.Wrapper;
 import com.darkcart.xdolf.mods.Hacks;
 import com.darkcart.xdolf.util.Category;
-import com.darkcart.xdolf.util.EntityUtils;
 import com.darkcart.xdolf.util.Value;
 
 import net.minecraft.client.entity.EntityPlayerSP;
