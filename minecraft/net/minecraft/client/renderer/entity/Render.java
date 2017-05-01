@@ -9,7 +9,6 @@ import com.darkcart.xdolf.util.Friend;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -403,7 +402,7 @@ public abstract class Render<T extends Entity> implements IEntityRenderer
             if (entityIn instanceof EntityLivingBase) {
             str = str + " \247a" + ((double)Math.round((((EntityLivingBase) entityIn).getHealth() * 100) / 100) / 2);
             }
-            if(!Hacks.findMod(Nametags.class).isEnabled() || !(entityIn instanceof EntityPlayerSP))
+            if(!Hacks.findMod(Nametags.class).isEnabled())
             	EntityRenderer.drawNameplate(this.getFontRendererFromRenderManager(), str, (float)x, (float)y + f2, (float)z, i, f, f1, flag1, flag);
         }
     }
