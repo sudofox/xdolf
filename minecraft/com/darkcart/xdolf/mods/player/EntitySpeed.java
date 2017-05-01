@@ -6,6 +6,10 @@ import com.darkcart.xdolf.Module;
 import com.darkcart.xdolf.util.Category;
 import com.darkcart.xdolf.util.Value;
 
+/**
+ * Credits to 0x22 for this.
+ */
+
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.network.play.client.CPacketPlayer;
 import net.minecraft.util.MovementInput;
