@@ -182,7 +182,7 @@ public class EntityLlama extends AbstractChestHorse implements IRangedAttackMob
      */
     public boolean canBeSteered()
     {
-        return false;
+        return true;
     }
 
     protected boolean func_190678_b(EntityPlayer p_190678_1_, ItemStack p_190678_2_)

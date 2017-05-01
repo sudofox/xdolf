@@ -91,7 +91,8 @@ public class EntityPig extends EntityAnimal
      */
     public boolean canBeSteered()
     {
-        Entity entity = this.getControllingPassenger();
+    	return true;
+       /* Entity entity = this.getControllingPassenger();
 
         if (!(entity instanceof EntityPlayer))
         {
@@ -101,7 +102,7 @@ public class EntityPig extends EntityAnimal
         {
             EntityPlayer entityplayer = (EntityPlayer)entity;
             return entityplayer.getHeldItemMainhand().getItem() == Items.CARROT_ON_A_STICK || entityplayer.getHeldItemOffhand().getItem() == Items.CARROT_ON_A_STICK;
-        }
+        }*/
     }
 
     public void notifyDataManagerChange(DataParameter<?> key)
