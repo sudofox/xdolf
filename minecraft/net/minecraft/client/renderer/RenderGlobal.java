@@ -1,6 +1,8 @@
 package net.minecraft.client.renderer;
 
+import com.darkcart.xdolf.Wrapper;
 import com.darkcart.xdolf.mods.Hacks;
+import com.darkcart.xdolf.mods.render.OutlineESP;
 import com.darkcart.xdolf.mods.world.Freecam;
 import com.darkcart.xdolf.mods.world.XRay;
 import com.google.common.collect.Lists;
@@ -110,6 +112,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector3f;
 import org.lwjgl.util.vector.Vector4f;
 import shadersmod.client.Shaders;
@@ -818,7 +821,6 @@ public class RenderGlobal implements IWorldEventListener, IResourceManagerReload
                     for (int k = 0; k < ((List)list1).size(); ++k)
                     {
                         Entity entity4 = (Entity)list1.get(k);
-
                         if (!flag || Reflector.callBoolean(entity4, Reflector.ForgeEntity_shouldRenderInPass, new Object[] {Integer.valueOf(i)}))
                         {
                             if (flag4)
@@ -1036,6 +1038,9 @@ public class RenderGlobal implements IWorldEventListener, IResourceManagerReload
 
     private boolean isOutlineActive(Entity p_184383_1_, Entity p_184383_2_, ICamera p_184383_3_)
     {
+    	if(Hacks.findMod(OutlineESP.class).isEnabled() && p_184383_2_ instanceof EntityLivingBase)
+    		return true;
+    	
         boolean flag = p_184383_2_ instanceof EntityLivingBase && ((EntityLivingBase)p_184383_2_).isPlayerSleeping();
         return p_184383_1_ == p_184383_2_ && this.mc.gameSettings.thirdPersonView == 0 && !flag ? false : (p_184383_1_.isGlowing() ? true : (this.mc.player.isSpectator() && this.mc.gameSettings.keyBindSpectatorOutlines.isKeyDown() && p_184383_1_ instanceof EntityPlayer ? p_184383_1_.ignoreFrustumCheck || p_184383_3_.isBoundingBoxInFrustum(p_184383_1_.getEntityBoundingBox()) || p_184383_1_.isRidingOrBeingRiddenBy(this.mc.player) : false));
     }

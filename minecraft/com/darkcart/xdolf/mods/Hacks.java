@@ -37,6 +37,7 @@ import com.darkcart.xdolf.mods.render.LSD;
 import com.darkcart.xdolf.mods.render.Nametags;
 import com.darkcart.xdolf.mods.render.NoHurtCam;
 import com.darkcart.xdolf.mods.render.NoPumpkinBlur;
+import com.darkcart.xdolf.mods.render.OutlineESP;
 import com.darkcart.xdolf.mods.render.PlayerESP;
 import com.darkcart.xdolf.mods.render.StorageESP;
 import com.darkcart.xdolf.mods.render.Tracers;
@@ -96,6 +97,7 @@ public class Hacks
 			new AutoEat(),
 			new Jesus(),
 			new EntitySpeed(),
+			new OutlineESP(),
 			//new LSD()
 	});
 
