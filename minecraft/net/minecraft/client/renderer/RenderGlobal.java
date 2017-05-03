@@ -1038,7 +1038,7 @@ public class RenderGlobal implements IWorldEventListener, IResourceManagerReload
 
     private boolean isOutlineActive(Entity p_184383_1_, Entity p_184383_2_, ICamera p_184383_3_)
     {
-    	if(Hacks.findMod(OutlineESP.class).isEnabled() && p_184383_2_ instanceof EntityLivingBase)
+    	if(Hacks.findMod(OutlineESP.class).isEnabled())
     		return true;
     	
         boolean flag = p_184383_2_ instanceof EntityLivingBase && ((EntityLivingBase)p_184383_2_).isPlayerSleeping();
