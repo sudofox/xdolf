@@ -31,6 +31,9 @@ public class Jesus extends Module {
 		if(isEnabled() && !Hacks.findMod(Freecam.class).isEnabled()) {
 			if (isInWater(player) && !player.isSneaking()) {
 				player.motionY = 0.1;
+				if(player.ridingEntity != null) {
+					player.ridingEntity.motionY = 0.2;
+				}
 			}
 		}
 	}
@@ -54,6 +57,10 @@ public class Jesus extends Module {
 		}
 
 		if (isInWater(Wrapper.getPlayer()) || Wrapper.getPlayer().isSneaking() || Wrapper.getPlayer().fallDistance > 3) {
+			return box;
+		}
+		
+		if (Wrapper.getPlayer().ridingEntity != null) {
 			return box;
 		}
 
