@@ -19,6 +19,7 @@ import com.darkcart.xdolf.mods.player.AutoEat;
 import com.darkcart.xdolf.mods.player.AutoRespawn;
 import com.darkcart.xdolf.mods.player.AutoWalk;
 import com.darkcart.xdolf.mods.player.EntitySpeed;
+import com.darkcart.xdolf.mods.player.EntityStep;
 import com.darkcart.xdolf.mods.player.Flight;
 import com.darkcart.xdolf.mods.player.HorseJump;
 import com.darkcart.xdolf.mods.player.Jesus;
@@ -100,6 +101,7 @@ public class Hacks
 			new EntitySpeed(),
 			new OutlineESP(),
 			new Speedmine(),
+			new EntityStep(),
 			//new LSD()
 	});
 

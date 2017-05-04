@@ -7,6 +7,7 @@ import com.darkcart.xdolf.mods.aura.CrystalLog;
 import com.darkcart.xdolf.mods.aura.KillAura;
 import com.darkcart.xdolf.mods.player.AutoEat;
 import com.darkcart.xdolf.mods.player.EntitySpeed;
+import com.darkcart.xdolf.mods.player.EntityStep;
 import com.darkcart.xdolf.mods.player.Flight;
 import com.darkcart.xdolf.mods.world.Speedmine;
 
