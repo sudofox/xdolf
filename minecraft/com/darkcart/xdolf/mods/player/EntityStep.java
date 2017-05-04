@@ -19,12 +19,12 @@ public class EntityStep extends Module
 		super("EntityStep", "Increase step height for on entities (buggy).", Keyboard.KEYBOARD_SIZE, 0xFFFFFF, Category.PLAYER);
 	}
 
-	public void onEnable() {
-		try {
-			if(Wrapper.getPlayer().ridingEntity != null) {
-				Wrapper.getPlayer().ridingEntity.stepHeight = entityStep.getValue();
+	public void onUpdate(EntityPlayerSP player) {
+		if(isEnabled()) {
+			if(player.ridingEntity != null && player.ridingEntity.stepHeight != (int) entityStep.getValue()) {
+				player.ridingEntity.stepHeight = (int) entityStep.getValue();
 			}
-		}catch(Exception ex){}
+		}
 	}
 	
 	public void onDisable() {
