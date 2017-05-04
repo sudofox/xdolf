@@ -2,7 +2,11 @@
 
 This is a backup copy of the Xdolf repository, made three minutes after the announcement that Xdolf would be made closed-source and obfuscated was made. This is the last known clean copy of Xdolf's repository. No changes, other than to this README.md file, have been made.
 
-You can download the last known clean version of Xdolf from https://www.xdolf.com.
+You can download the last known clean version of Xdolf from the Releases section. I will also provide a copy built straight from this repository (unobfuscated).
+
+https://github.com/sudofox/xdolf/releases
+
+https://www.xdolf.com
 
 * * *
 
