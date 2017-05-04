@@ -43,7 +43,47 @@ public class FileManager
 		loadXrayList();
 		loadHacks();
 		loadFriends();
+		loadMacros();
 		loadWaypoints();
+	}
+	
+	public void saveMacros() {
+		try {
+			File file = new File(xdolfDir.getAbsolutePath(), "macros.txt");
+			BufferedWriter out = new BufferedWriter(new FileWriter(file));
+			for(Macro m : Macro.macroList) {
+				int getKey = m.getKey();
+				if (getKey <= 114)
+				{
+					out.write(m.getCommand() + ":" + Keyboard.getKeyName(m.getKey()));
+					out.write("\r\n");
+				}
+			}
+			out.close(); 
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void loadMacros() {
+		try {
+			File file = new File(xdolfDir.getAbsolutePath(), "macros.txt");
+			FileInputStream fstream = new FileInputStream(file.getAbsolutePath());
+			DataInputStream in = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			String line;
+			while((line = br.readLine()) != null) {
+				String curLine = line.toLowerCase().trim();
+				String[] s = curLine.split(":");
+				String cmd = s[0];
+				int id = Keyboard.getKeyIndex(s[1].toUpperCase());
+				Macro m = new Macro(id, cmd);
+			}
+			br.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+			saveMacros();
+		}
 	}
 	
 	public void saveKeybinds() {
