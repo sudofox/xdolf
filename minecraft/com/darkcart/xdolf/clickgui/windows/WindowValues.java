@@ -8,6 +8,7 @@ import com.darkcart.xdolf.mods.aura.KillAura;
 import com.darkcart.xdolf.mods.player.AutoEat;
 import com.darkcart.xdolf.mods.player.EntitySpeed;
 import com.darkcart.xdolf.mods.player.Flight;
+import com.darkcart.xdolf.mods.world.Speedmine;
 
 public class WindowValues extends XdolfWindow
 {
@@ -22,5 +23,6 @@ public class WindowValues extends XdolfWindow
 		addSlider(AutoLog.pvpHealthFactor, 1.00F, 19F, true).setValue(6.00F);
 		addSlider(CrystalLog.distance, 1, 10, true).setValue(2);
 		addSlider(AutoEat.hungerFactor, 0.00F, 19F, true).setValue(7.00F);
+		addSlider(Speedmine.mineSpeed, 0.1F, 1F, false).setValue(0.4F);
 	}
 }

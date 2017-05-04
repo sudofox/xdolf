@@ -46,6 +46,7 @@ import com.darkcart.xdolf.mods.render.Waypoints;
 import com.darkcart.xdolf.mods.world.FastPlace;
 import com.darkcart.xdolf.mods.world.Freecam;
 import com.darkcart.xdolf.mods.world.Fullbright;
+import com.darkcart.xdolf.mods.world.Speedmine;
 import com.darkcart.xdolf.mods.world.Timer;
 import com.darkcart.xdolf.mods.world.XRay;
 
@@ -98,6 +99,7 @@ public class Hacks
 			new Jesus(),
 			new EntitySpeed(),
 			new OutlineESP(),
+			new Speedmine(),
 			//new LSD()
 	});
 
