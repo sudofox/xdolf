@@ -53,7 +53,7 @@ public class XdolfWindow {
 			drag(x, y);
 		}
 		
-		RenderUtils.drawBorderedRect(getXAndDrag(), getYAndDrag(), getXAndDrag() + 100, getYAndDrag() + 13 + (isOpen ? (12 * buttonList.size() + 0.5F) + (20 * sliderList.size() + (sliderList.size() != 0 ? 2.5F : 0)) : 0) + toAdd, 0.5F, 0xFF000000, 0x80000000);
+		RenderUtils.drawBorderedRect(getXAndDrag(), getYAndDrag(), getXAndDrag() + 100, getYAndDrag() + 13 + (isOpen ? (12 * buttonList.size() + 0.5F) + (19 * sliderList.size() + (sliderList.size() != 0 ? 2.5F : 0)) : 0) + toAdd, 0.5F, 0xFF000000, 0x80000000);
 		Fonts.roboto18.drawStringWithShadow(title, getXAndDrag() + 3, getYAndDrag()  + 1, 0xFFFFFF);
 
 		if(Wrapper.getMinecraft().currentScreen instanceof XdolfGuiClick) {
