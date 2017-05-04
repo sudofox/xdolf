@@ -18,6 +18,7 @@ public class WindowValues extends XdolfWindow
 		super("Values", 2, 2);
 		addSlider(Flight.flySpeed, 0.1F, 10F, false).setValue(1.0F);
 		addSlider(EntitySpeed.entitySpeed, 0.1F, 3.86F, false).setValue(3.00F);
+		addSlider(EntityStep.entityStep, 1F, 256F, true).setValue(2.00F);
 		addSlider(KillAura.auraRange, 3.0F, 10.0F, false).setValue(3.75F);
 		addSlider(CrystalAura.crystalSpeed, 1.0F, 20.0F, true).setValue(8.0F);
 		addSlider(CrystalAura.crystalRange, 3.0F, 10.0F, false).setValue(3.75F);
